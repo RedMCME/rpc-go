@@ -4,7 +4,7 @@
 // - protoc             v3.21.12
 // source: player.proto
 
-package skyblock
+package player
 
 import (
 	context "context"
