@@ -36,7 +36,7 @@ func NewPlayerServiceClient(cc grpc.ClientConnInterface) PlayerServiceClient {
 
 func (c *playerServiceClient) GetPlayer(ctx context.Context, in *PlayerRequest, opts ...grpc.CallOption) (*Player, error) {
 	out := new(Player)
-	err := c.cc.Invoke(ctx, "/skyblock.PlayerService/GetPlayer", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/player.PlayerService/GetPlayer", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -45,7 +45,7 @@ func (c *playerServiceClient) GetPlayer(ctx context.Context, in *PlayerRequest, 
 
 func (c *playerServiceClient) GetGroups(ctx context.Context, in *PlayerRequest, opts ...grpc.CallOption) (*PlayerGroups, error) {
 	out := new(PlayerGroups)
-	err := c.cc.Invoke(ctx, "/skyblock.PlayerService/GetGroups", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/player.PlayerService/GetGroups", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +94,7 @@ func _PlayerService_GetPlayer_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/skyblock.PlayerService/GetPlayer",
+		FullMethod: "/player.PlayerService/GetPlayer",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PlayerServiceServer).GetPlayer(ctx, req.(*PlayerRequest))
@@ -112,7 +112,7 @@ func _PlayerService_GetGroups_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/skyblock.PlayerService/GetGroups",
+		FullMethod: "/player.PlayerService/GetGroups",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PlayerServiceServer).GetGroups(ctx, req.(*PlayerRequest))
@@ -124,7 +124,7 @@ func _PlayerService_GetGroups_Handler(srv interface{}, ctx context.Context, dec 
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var PlayerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "skyblock.PlayerService",
+	ServiceName: "player.PlayerService",
 	HandlerType: (*PlayerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
